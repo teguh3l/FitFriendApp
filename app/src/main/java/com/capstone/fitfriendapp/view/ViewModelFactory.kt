@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.fitfriendapp.data.pref.UserRepository
 import com.capstone.fitfriendapp.di.Injection
 import com.capstone.fitfriendapp.view.home.MainViewModel
+import com.capstone.fitfriendapp.view.login.LoginViewModel
+import com.capstone.fitfriendapp.view.register.RegisterViewModel
 
 class ViewModelFactory (private val repository: UserRepository):
     ViewModelProvider.NewInstanceFactory() {
@@ -15,6 +17,14 @@ class ViewModelFactory (private val repository: UserRepository):
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
+                RegisterViewModel(repository) as T
             }
 
             else ->

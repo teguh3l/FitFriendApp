@@ -52,5 +52,6 @@
     <string name="hint_input_weight">Weight</string>
     <string name="hint_input_height">Height</string>
     <string name="fitfriend">FitFriend</string>
+    <string name="tagline_app">Your Workout AI Companion</string>
 
 </resources>
