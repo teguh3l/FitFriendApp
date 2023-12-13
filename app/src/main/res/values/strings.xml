@@ -54,4 +54,18 @@
     <string name="fitfriend">FitFriend</string>
     <string name="tagline_app">Your Workout AI Companion</string>
 
+
+    <string-array name="data_name">
+        <item>Upper Body</item>
+        <item>Arm Exercise</item>
+        <item>Leg Exercise</item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/arm</item>
+        <item>@drawable/upperbody</item>
+        <item>@drawable/leg1</item>
+    </integer-array>
+
+
 </resources>

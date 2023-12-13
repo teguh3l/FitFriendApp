@@ -16,6 +16,7 @@ import com.capstone.fitfriendapp.data.pref.UserModel
 import com.capstone.fitfriendapp.databinding.ActivityLoginBinding
 import com.capstone.fitfriendapp.view.ViewModelFactory
 import com.capstone.fitfriendapp.view.home.MainActivity
+import kotlinx.coroutines.flow.map
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -26,6 +27,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel.getSessionIsLogin().map{
+            if (it.isLogin){
+               startMainActivity()
+            }
+        }
 
         setupView()
         setupAction()

@@ -8,6 +8,9 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.capstone.fitfriendapp.R
 import com.capstone.fitfriendapp.data.pref.UserModel
 import com.capstone.fitfriendapp.databinding.ActivityMainBinding
 import com.capstone.fitfriendapp.view.ViewModelFactory
@@ -18,6 +21,9 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var rvWorkOut: RecyclerView
+    private val list = ArrayList<WorkOut>()
+
     private val viewModel: MainViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
@@ -26,9 +32,35 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        rvWorkOut = findViewById(R.id.rv_homePage)
+        rvWorkOut.setHasFixedSize(true)
+
+        list.addAll(getListWorkOut())
+        showRecyclerList()
+
+
         observeSession()
         setupView()
     }
+
+    private fun  getListWorkOut(): ArrayList<WorkOut>{
+        val dataNama = resources.getStringArray(R.array.data_name)
+        val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
+
+        val listWorkOut = ArrayList<WorkOut>()
+        for (i in dataNama.indices){
+            val workOut = WorkOut(dataNama[i],dataPhoto.getResourceId(i,-1))
+            listWorkOut.add(workOut)
+        }
+        return listWorkOut
+    }
+
+    private fun showRecyclerList(){
+        rvWorkOut.layoutManager = LinearLayoutManager(this)
+        val listWorkOutAdapter = ListWorkOutAdapter(list)
+        rvWorkOut.adapter=listWorkOutAdapter
+    }
+
 
     private fun setupView() {
         @Suppress("DEPRECATION")
