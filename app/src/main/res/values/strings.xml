@@ -32,6 +32,10 @@
     <string name="email_rule">Email must not be empty</string>
     <string name="password_rule">Password must not be empty</string>
 
+    //menu
+    <string name="menu_setting"> Settings </string>
+    <string name="menu_logout">Logout</string>
+
     //profile
     <string name="alissa_gmail_com_string">alissa@gmail.com</string>
     <string name="alissa_string">Alissa</string>

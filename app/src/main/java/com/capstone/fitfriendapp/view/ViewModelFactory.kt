@@ -7,6 +7,7 @@ import com.capstone.fitfriendapp.data.pref.UserRepository
 import com.capstone.fitfriendapp.di.Injection
 import com.capstone.fitfriendapp.view.home.MainViewModel
 import com.capstone.fitfriendapp.view.login.LoginViewModel
+import com.capstone.fitfriendapp.view.profile.ProfileViewModel
 import com.capstone.fitfriendapp.view.register.RegisterViewModel
 
 class ViewModelFactory (private val repository: UserRepository):
@@ -25,6 +26,10 @@ class ViewModelFactory (private val repository: UserRepository):
 
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
 
             else ->

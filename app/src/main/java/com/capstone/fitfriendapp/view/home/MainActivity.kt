@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.RelativeLayout
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ import com.capstone.fitfriendapp.data.pref.UserModel
 import com.capstone.fitfriendapp.databinding.ActivityMainBinding
 import com.capstone.fitfriendapp.view.ViewModelFactory
 import com.capstone.fitfriendapp.view.getstarted.GetStartedActivity
+import com.capstone.fitfriendapp.view.profile.ProfileActivity
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -32,12 +34,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val profileSummary: RelativeLayout = findViewById(R.id.profile_summary)
+        profileSummary.setOnClickListener {
+            val moveIntent = Intent(this@MainActivity, ProfileActivity::class.java)
+            startActivity(moveIntent)
+        }
+
         rvWorkOut = findViewById(R.id.rv_homePage)
         rvWorkOut.setHasFixedSize(true)
 
         list.addAll(getListWorkOut())
         showRecyclerList()
-
 
         observeSession()
         setupView()
