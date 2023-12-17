@@ -55,6 +55,13 @@
     <string name="tagline_app">Your Workout AI Companion</string>
 
 
+    <string name="upper_body_10menit_5_kombinasi_gerakan">Upper Body ( 10Menit - 5 Kombinasi Gerakan )</string>
+    <string name="curl">Curl</string>
+    <string name="curl_repetion">10 X 2 Min</string>
+    <string name="bird_dog">Bird Dog</string>
+    <string name="overhead_press">Overhead Press</string>
+    <string name="start_workout">Start WorkOut</string>
+
     <string-array name="data_name">
         <item>Upper Body</item>
         <item>Arm Exercise</item>

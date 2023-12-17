@@ -40,7 +40,7 @@ class ListWorkOutAdapter(private val listWorkOut: ArrayList<WorkOut>) :
             onItemClickCallback?.onItemClicked(listWorkOut[holder.adapterPosition])
             context?.let {ctx ->
                 val intent: Intent? = when (name) {
-                    "Upper Body" -> null // Intent(context, UpperBodyActivity::class.java)
+                    "Upper Body" -> Intent(context, UpperBodyActivity::class.java)
                     "Arm Exercise" -> null
                     "Leg Exercise" -> null
                     else -> null
